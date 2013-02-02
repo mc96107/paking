@@ -14,8 +14,8 @@ define(function(require) {
 
     require('layouts/view');
     require('layouts/list');
-$j = zepto.noConflict();  
-    require('./OpenLayers.mobile');
+
+    require('./OpenLayers');
     require('./maps');
 
 // My app
