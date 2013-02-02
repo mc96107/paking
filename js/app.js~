@@ -1,0 +1,178 @@
+
+// This uses require.js to structure javascript:
+// http://requirejs.org/docs/api.html#define
+
+define(function(require) {
+    // Receipt verification (https://github.com/mozilla/receiptverifier)
+    require('receiptverifier');
+
+    // Installation button
+    require('./install-button');
+
+
+    // Write your app here.
+
+    require('layouts/view');
+    require('layouts/list');
+$j = zepto.noConflict();  
+    require('./OpenLayers.mobile');
+    require('./maps');
+
+// My app
+	var list=[];
+	var logLength = localStorage.length-1;
+    	var list = $('.list').get(0);
+	for (i = 0; i <= logLength; i++) {
+	var itemKey = localStorage.key(i);
+	var values = localStorage.getItem(itemKey);
+	values = values.split(";");
+	list.add({ 
+		itemId: values[0],
+		title: values[1],
+		desc: values[2],
+		lat: values[3],
+		lon: values[4],
+		date: values[5],
+		day: values[6],
+		hour: values[7],
+		minutes: values[8]
+		});
+//$('h1').html('<a href="http://maps.google.com/?q=' + values[3] + "," + values[4] + '">Last</a>'); 
+	}
+	
+    function formatDate(d) {
+        return (d.getMonth()+1) + '/' +
+            d.getDate() + '/' +
+            d.getFullYear();
+    }
+	var ltt;
+	var lng;
+function onSuccess1(position) {
+console.log('getting location...');
+ltt = position.coords.latitude;
+lng = position.coords.longitude;
+ var model = edit.model;
+	var newDate = new Date();
+	var date1 = formatDate(newDate);
+	var itemId = newDate.getTime();
+	var weekday=new Array();
+	weekday[0]="Sunday";
+	weekday[1]="Monday";
+	weekday[2]="Tuesday";
+	weekday[3]="Wednesday";
+	weekday[4]="Thursday";
+	weekday[5]="Friday";
+	weekday[6]="Saturday";
+	var day = weekday[newDate.getDay()];
+	//var day = newDate.getDay();
+	var hour = newDate.getHours();
+	var minutes = newDate.getMinutes();
+	var title = day + " - " +  hour + ":" + minutes + " - " + date1 + " - " + '<a href="http://maps.google.com/?q=' + ltt + "," + lng + '">map</a>';
+	var desc =  day + " - " +  hour + ":" + minutes + " - " + date1 + " - " + ltt + " - " + lng;	
+	try {
+	localStorage.setItem(itemId, itemId +";"+ title+";"+desc+";"+ltt+";"+lng+";"+date1+";"+day+";"+hour+";"+minutes);
+	list.add({itemId: itemId,title: title, desc: desc, lat: ltt, lon: lng, date: date1, day: day, hour: hour, minutes: minutes});
+
+
+		} catch (e) {
+			if (e == QUOTA_EXCEEDED_ERR) {
+				alert('Quota exceeded!');
+			}
+		}
+        //edit.close('slideRightOut');
+}
+function onError1(error) {
+console.log('unable to get real location, using default');
+ltt = 38;
+lng = 24;
+}
+
+
+//navigator.geolocation.getCurrentPosition(onSuccess1, onError1, {timeout:10000});
+    // List view
+    /*list.add({ title: 'Learn this template',
+               desc: 'This is a list-detail template. Learn more ' +
+                     'about it at its ' +
+                     '<a href="https://github.com/mozilla/mortar-list-detail">project page!</a>',
+               date: new Date() });
+    list.add({ title: 'Make things',
+               desc: 'Make this look like that',
+               date: new Date(12, 9, 5) });
+    list.add({ title: 'Move stuff',
+               desc: 'Move this over there',
+               date: new Date(12, 10, 1) });*/
+
+    $('button.refresh', list).click(function() {
+        // Do nothing right now
+    });
+
+ /*   $('button.add', list).click(function() {
+        edit.open(null, 'slideLeft');
+    });*/
+    
+    // Detail view
+
+    var detail = $('.detail').get(0);
+    detail.render = function(item) {
+		$('.itemId', this).html(item.get('itemId')); 
+		$('.title', this).html(item.get('title'));
+		$('.desc', this).html(item.get('desc'));
+		$('.lat', this).html(item.get('lat'));  
+		$('.lon', this).html(item.get('lon')); 
+		$('.date', this).html(item.get('date')); 
+		$('.day', this).html(item.get('day')); 
+		$('.hour', this).html(item.get('hour')); 
+		$('.minutes', this).html(item.get('minutes'));
+	
+	$('button.deleT', detail).click(function() {
+	if(item.get('itemId') !="") localStorage.removeItem(item.get('itemId'));
+	location.reload();
+	detail.close('slideRightOut');
+	});  };
+    // Edit view
+
+    var edit = $('.edit').get(0);
+    edit.render = function(item) {
+        item = item || { id: '', get: function() { return ''; } };
+        //$('input[name=id]', this).val(item.id);
+        $('input[name=title]', this).val(item.get('title'));
+        $('input[name=desc]', this).val(item.get('desc'));
+	if(item.get('itemId') !="") localStorage.setItem(item.get('itemId'), item.get('itemId')+";"+item.get('title')+";"+item.get('desc')+";"+item.get('lat')+";"+item.get('lon')+";"+item.get('date')+";"+item.get('day')+";"+item.get('hour')+";"+item.get('minutes'));
+    };
+	
+    edit.getTitle = function() {
+        var model = this.view.model;
+
+        if(model) {
+            return model.get('title');
+        }
+        else {
+            return 'New';
+        }
+    };
+	
+	
+	$('button.add', edit).click(function() {
+	var el = $(edit);
+	var model = edit.model;
+        var title = el.find('input[name=title]');
+        var desc = el.find('input[name=desc]');
+	try {
+console.log(lat.val());
+	localStorage.setItem(itemId.val(), id.val() +";"+ title.val()+";"+desc.val()+";"+lat.val()+";"+lon.val()+";"+date.val()+";"+day.val()+";"+hour.val()+";"+minutes.val());
+	list.add({itemId: itemId.val(),title: title.val(), desc: desc.val(), lat: lat.val(), lon: lon.val(), date: date.val(), day: day.val(), hour: hour.val(), minutes: minutes.val()});
+
+		} catch (e) {
+			if (e == QUOTA_EXCEEDED_ERR) {
+				alert('Quota exceeded!');
+			}
+		}
+        edit.close('slideRightOut');
+    });
+	$('button.add1').click(function() {
+	console.log("click!");
+	navigator.geolocation.getCurrentPosition(onSuccess1, onError1, {timeout:10000});
+    });
+
+});
+

@@ -1,0 +1,23 @@
+{
+  "version": "0.1",
+  "name": "Parking",
+  "description": "Where is my car?",
+  "launch_path": "/mylisttestapp/",
+  "icons": {
+    "16": "/img/icons/mortar-16.png",
+    "48": "/img/icons/mortar-48.png",
+    "128": "/img/icons/mortar-128.png"
+  },
+  "developer": {
+    "name": "Dimitris Gardiklis",
+    "url": "https://twitter.com/gardiklis"
+  },
+  "installs_allowed_from": ["*"],
+  "appcache_path": "/cache.manifest",
+  "default_locale": "en",
+  "permissions": {
+  "geolocation": {
+    "description": "Obtain the current location of the user"
+  }
+}
+}
