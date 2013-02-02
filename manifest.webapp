@@ -2,11 +2,11 @@
   "version": "0.1",
   "name": "Parking",
   "description": "Where is my car?",
-  "launch_path": "/mylisttestapp/",
+  "launch_path": "/paking/",
   "icons": {
-    "16": "/mylisttestapp/img/icons/mortar-16.png",
-    "48": "/mylisttestapp/img/icons/mortar-48.png",
-    "128": "/mylisttestapp/img/icons/mortar-128.png"
+    "16": "/paking/img/icons/mortar-16.png",
+    "48": "/paking/img/icons/mortar-48.png",
+    "128": "/paking/img/icons/mortar-128.png"
   },
   "developer": {
     "name": "Dimitris Gardiklis",
