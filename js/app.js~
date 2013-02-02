@@ -15,6 +15,7 @@ define(function(require) {
     require('layouts/view');
     require('layouts/list');
 //maps
+/*
     require('OpenLayers.mobile');
 var style = {
     fillColor: '#000',
@@ -33,7 +34,7 @@ map.setCenter(
         map.getProjectionObject()
     ), 12
 );
-
+	
 
 var pulsate = function(feature) {
     var point = feature.geometry.getCentroid(),
@@ -138,7 +139,7 @@ document.getElementById('track').onclick = function() {
 };
 document.getElementById('track').checked = false;
 
-
+*/
 
 // My app
 	var list=[];
