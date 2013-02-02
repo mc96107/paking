@@ -35,28 +35,6 @@ map.setCenter(
 );
 
 
-vLayer = new OpenLayers.Layer.Vector('layerName', {
-        projection: map.displayProjection,
-        extractAttributes: true,
-        styleMap: new OpenLayers.StyleMap({'default' : MarkerStyle}),
-        strategies: [new OpenLayers.Strategy.Fixed()],
-        protocol: new OpenLayers.Protocol.HTTP({
-            url: listurl,
-            format: new OpenLayers.Format.GeoJSON()
-        })
-    });
-
-map.addLayer(vLayer);
-var lon1=23.7;
-var lat1=38.0;
-point1 = new OpenLayers.Geometry.Point(lon1, lat1);
-
-// If your base layer have different SRS you should reproject your geometries manually
-point1.transform(new OpenLayers.Projection('EPSG:4326'), new OpenLayers.Projection('EPSG:3857'));
-feature1 = new OpenLayers.Feature.Vector(point1);
-vLayer.addFeatures([feature1]);
-
-
 var pulsate = function(feature) {
     var point = feature.geometry.getCentroid(),
         bounds = feature.geometry.getBounds(),
