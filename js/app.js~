@@ -16,7 +16,7 @@ define(function(require) {
     require('layouts/list');
 
     require('OpenLayers.mobile');
-    require('maps');
+    //require('maps');
 
 // My app
 	var list=[];

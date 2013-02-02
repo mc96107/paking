@@ -33,4 +33,5 @@ js/lib/layouts/footer.js
 js/lib/layouts/view.js
 js/lib/layouts/list.js
 js/lib/OpenLayers.mobile.js
+js/lib/maps.js
 js/lib/../app.js
