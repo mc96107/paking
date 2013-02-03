@@ -20,7 +20,7 @@
 	     <button id="install-btn">Install</button>  
 <h1>parking</h1><button data-view=".list">List</button> <button class="add1">+</button> 
 	</header>   
-<div id="map" style="height:600px;"></div>
+<div id="map"></div>
 <!--
 <button id="locate">Locate me!</button>
         <input type="checkbox" name="track" id="track">

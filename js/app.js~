@@ -37,8 +37,8 @@ define(function(require) {
 		hour: values[7],
 		minutes: values[8]
 		});
-//ltt1=values[3];
-//lng1=values[4];
+ltt1=values[3];
+lng1=values[4];
 //$('h1').html('<a href="http://maps.google.com/?q=' + values[3] + "," + values[4] + '">Last</a>'); 
 	}
 
@@ -144,13 +144,10 @@ geolocate.events.register("locationfailed",this,function() {
 
     vector.removeAllFeatures();
     geolocate.deactivate();
-
-        geolocate.watch = true;
-        firstGeolocation = true;
-        geolocate.activate();
-
-
-
+    geolocate.watch = true;
+    firstGeolocation = true;
+    geolocate.activate();
+/*
    var vectorLayer = new OpenLayers.Layer.Vector("vector");
     vectorLayer.addFeatures(
         new OpenLayers.Feature.Vector(
@@ -159,10 +156,7 @@ geolocate.events.register("locationfailed",this,function() {
             map.getProjectionObject()
             )
         )
-    ) 
-
- 
-
+    ) */
 
  map.addLayer(vectorLayer);
 
@@ -215,6 +209,24 @@ lng = position.coords.longitude;
 			}
 		}
         //edit.close('slideRightOut');
+
+    vector.removeAllFeatures();
+    geolocate.deactivate();
+    geolocate.watch = true;
+    firstGeolocation = true;
+    geolocate.activate();
+
+   var vectorLayer = new OpenLayers.Layer.Vector("vector");
+    vectorLayer.addFeatures(
+        new OpenLayers.Feature.Vector(
+            new OpenLayers.Geometry.Point(lng1,ltt1).transform(
+            new OpenLayers.Projection("EPSG:4326"),
+            map.getProjectionObject()
+            )
+        )
+    ) 
+ map.addLayer(vectorLayer);
+
 }
 function onError1(error) {
 console.log('unable to get real location, using default');
