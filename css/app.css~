@@ -22,7 +22,8 @@ h1 {
 }
 
 x-view .contents {
-    padding: 1em;
+    padding: 0em;
+	height: 100%;
 }
 
 x-view h1 {
@@ -30,6 +31,7 @@ x-view h1 {
 }
 
 x-view.edit .field {
+padding: 1em;
     margin-top: 1em;
 }
 
@@ -43,8 +45,18 @@ x-listview.list li:before {
     vertical-align: middle;
 }
 
+x-view.about  .contents{
+padding: 1em;
+    margin-top: 1em;
+}
+
+x-view.detail  .contents{
+padding: 1em;
+    margin-top: 1em;
+}
+
 #map {
-height   : 80%;
+height   : 100%;
 }
 
   .olControlAttribution {

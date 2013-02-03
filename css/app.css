@@ -134,12 +134,14 @@ h1 {
     font: 2.2rem/4.8rem "Open Sans", Sans-serif;
 }
 x-view .contents {
-    padding: 1em;
+    padding: 0em;
+	height: 100%;
 }
 x-view h1 {
     margin-top: 0;
 }
 x-view.edit .field {
+padding: 1em;
     margin-top: 1em;
 }
 x-listview.list li:before {
@@ -151,8 +153,15 @@ x-listview.list li:before {
     margin-right: 5px;
     vertical-align: middle;
 }
+x-view.about  .contents{
+padding: 1em;
+    margin-top: 1em;
+}
+x-view.detail  .contents{
+padding: 1em;
+}
 #map {
-height   : 600px;
+height   : 100%;
 }
   .olControlAttribution {
                 position      : absolute;

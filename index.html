@@ -18,7 +18,7 @@
       <x-view class="homesub">
 	<header>
 	     <button id="install-btn">Install</button>  
-<h1>title</h1> <button class="add1">+</button> 
+<h1>parking</h1><button data-view=".list">List</button> <button class="add1">+</button> 
 	</header>   
 <div id="map"></div>
 <!--
@@ -31,8 +31,7 @@
       <x-listview class="list">
         <header>
           <!--<button class="refresh">Refresh</button>-->
-	<button  onclick='localStorage.clear();location.reload();'>Clear Data</button>
-          <h1>My Items</h1>
+          <h1>My Items</h1><button  onclick='localStorage.clear();location.reload();'>Clear Data</button>
         </header>
       </x-listview>
 
@@ -54,9 +53,16 @@
 
       </x-view>
     </x-view> 
+
+      <x-view class="about">
+        <h1>about</h1>
+        <p>
+	Where is my car?
+        </p>
+      </x-view>
       <footer>
-        <button data-view=".homesub">Home</button>
-        <button data-view=".list">List</button>
+        <button data-view=".home">Home</button>
+	<button data-view=".about">about</button>
       </footer>
       </x-view>
 

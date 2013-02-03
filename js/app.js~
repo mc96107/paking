@@ -45,7 +45,7 @@ define(function(require) {
 
 
 //maps
-
+document.body.style.height = '100%';
 var style = {
     fillColor: '#000',
     fillOpacity: 0.1,
