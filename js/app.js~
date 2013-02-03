@@ -14,8 +14,38 @@ define(function(require) {
 
     require('layouts/view');
     require('layouts/list');
-//maps
     require('OpenLayers.mobile');
+
+	var ltt1=38.0;
+	var lng1=23.7;
+// My app
+	var list=[];
+	var logLength = localStorage.length-1;
+    	var list = $('.list').get(0);
+	for (i = 0; i <= logLength; i++) {
+	var itemKey = localStorage.key(i);
+	var values = localStorage.getItem(itemKey);
+	values = values.split(";");
+	list.add({ 
+		itemId: values[0],
+		title: values[1],
+		desc: values[2],
+		lat: values[3],
+		lon: values[4],
+		date: values[5],
+		day: values[6],
+		hour: values[7],
+		minutes: values[8]
+		});
+//ltt1=values[3];
+//lng1=values[4];
+//$('h1').html('<a href="http://maps.google.com/?q=' + values[3] + "," + values[4] + '">Last</a>'); 
+	}
+
+
+
+//maps
+
 var style = {
     fillColor: '#000',
     fillOpacity: 0.1,
@@ -119,53 +149,38 @@ geolocate.events.register("locationfailed",this,function() {
         firstGeolocation = true;
         geolocate.activate();
 
-document.getElementById('locate').onclick = function() {
-    vector.removeAllFeatures();
-    geolocate.deactivate();
-    document.getElementById('track').checked = false;
-    geolocate.watch = false;
-    firstGeolocation = true;
-    geolocate.activate();
-};
-document.getElementById('track').onclick = function() {
-    vector.removeAllFeatures();
-    geolocate.deactivate();
-    if (this.checked) {
-        geolocate.watch = true;
-        firstGeolocation = true;
-        geolocate.activate();
-    }
-};
-document.getElementById('track').checked = false;
 
 
-// My app
-	var list=[];
-	var logLength = localStorage.length-1;
-    	var list = $('.list').get(0);
-	for (i = 0; i <= logLength; i++) {
-	var itemKey = localStorage.key(i);
-	var values = localStorage.getItem(itemKey);
-	values = values.split(";");
-	list.add({ 
-		itemId: values[0],
-		title: values[1],
-		desc: values[2],
-		lat: values[3],
-		lon: values[4],
-		date: values[5],
-		day: values[6],
-		hour: values[7],
-		minutes: values[8]
-		});
-//$('h1').html('<a href="http://maps.google.com/?q=' + values[3] + "," + values[4] + '">Last</a>'); 
-	}
+   var vectorLayer = new OpenLayers.Layer.Vector("vector");
+var pointl=lng1+","+ltt1;console.log(pointl);
+    vectorLayer.addFeatures(
+        new OpenLayers.Feature.Vector(
+            new OpenLayers.Geometry.Point(lng1,ltt1).transform(
+            new OpenLayers.Projection("EPSG:4326"),
+            map.getProjectionObject()
+            )
+        )
+    ) 
+
+ 
+
+
+ map.addLayer(vectorLayer);
+
+
+
+
+
+
+
 	
     function formatDate(d) {
         return (d.getMonth()+1) + '/' +
             d.getDate() + '/' +
             d.getFullYear();
     }
+
+
 	var ltt;
 	var lng;
 function onSuccess1(position) {
