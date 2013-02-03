@@ -64,6 +64,7 @@
         <button data-view=".home">Home</button>
 	<button data-view=".about">about</button>
 	<button class="showDay">showDay</button>
+	<button class="showHour">showDay</button>
       </footer>
       </x-view>
 
