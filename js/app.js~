@@ -160,15 +160,46 @@ geolocate.events.register("locationfailed",this,function() {
             )
         )
     ) 
-
- 
-
-
  map.addLayer(vectorLayer);
 
 
 
+$('button.showDay').click(function() {
+console.log("dayclick");
+var newDate = new Date();
+	var date1 = formatDate(newDate);
+	var itemId = newDate.getTime();
+	var weekday=new Array();
+	weekday[0]="Sunday";
+	weekday[1]="Monday";
+	weekday[2]="Tuesday";
+	weekday[3]="Wednesday";
+	weekday[4]="Thursday";
+	weekday[5]="Friday";
+	weekday[6]="Saturday";
+	var day = weekday[newDate.getDay()];
+for (i = 0; i <= logLength; i++) {
+	var itemKey = localStorage.key(i);
+	var values = localStorage.getItem(itemKey);
+	values = values.split(";");
 
+if(values[6]==day){
+ltt1=values[3];
+lng1=values[4];
+
+ var vectorLayer = new OpenLayers.Layer.Vector("vector");
+    vectorLayer.addFeatures(
+        new OpenLayers.Feature.Vector(
+            new OpenLayers.Geometry.Point(lng1,ltt1).transform(
+            new OpenLayers.Projection("EPSG:4326"),
+            map.getProjectionObject()
+            )
+        )
+    ) 
+ map.addLayer(vectorLayer);
+	}
+}
+  });
 
 
 
@@ -287,7 +318,7 @@ lng = 24;
     };
 	
 	
-	$('button.add', edit).click(function() {
+	/*$('button.add', edit).click(function() {
 	var el = $(edit);
 	var model = edit.model;
         var title = el.find('input[name=title]');
@@ -303,10 +334,11 @@ console.log(lat.val());
 			}
 		}
         edit.close('slideRightOut');
-    });
+    });*/
 	$('button.add1').click(function() {
 	console.log("click!");
 	navigator.geolocation.getCurrentPosition(onSuccess1, onError1, {timeout:10000});
+location.reload();
     });
 
 });
