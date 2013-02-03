@@ -207,19 +207,9 @@ var newDate = new Date();
 	var itemKey = localStorage.key(i);
 	var values = localStorage.getItem(itemKey);
 	values = values.split(";");
-if(values[7]+values[8]/60<hour+(minutes+15)/60&&values[7]+values[8]/60>hour+(minutes-15)/60){
+if((values[7]+values[8]/60<hour+(minutes+15)/60)&&(values[7]+values[8]/60>hour+(minutes-15)/60)){
 ltt1=values[3];
 lng1=values[4];
- var vectorLayer = new OpenLayers.Layer.Vector("vector");
-    vectorLayer.addFeatures(
-        new OpenLayers.Feature.Vector(
-            new OpenLayers.Geometry.Point(lng1,ltt1).transform(
-            new OpenLayers.Projection("EPSG:4326"),
-            map.getProjectionObject()
-            )
-        )
-    ) 
- map.addLayer(vectorLayer);
 	};
 };
   });
@@ -319,7 +309,7 @@ lng = 24;
 	detail.close('slideRightOut');
 	});  };
     // Edit view
-/*
+
     var edit = $('.edit').get(0);
     edit.render = function(item) {
         item = item || { id: '', get: function() { return ''; } };
@@ -357,7 +347,7 @@ console.log(lat.val());
 			}
 		}
         edit.close('slideRightOut');
-    });*/
+    });
 	$('button.add1').click(function() {
 	console.log("click!");
 	navigator.geolocation.getCurrentPosition(onSuccess1, onError1, {timeout:10000});
