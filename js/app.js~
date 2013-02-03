@@ -207,7 +207,7 @@ var newDate = new Date();
 	var itemKey = localStorage.key(i);
 	var values = localStorage.getItem(itemKey);
 	values = values.split(";");
-if(values[7]==day){
+if(values[7]+values[8]/60<hour+(minutes+15)/60&&values[7]+values[8]/60>hour+(minutes-15)/60){
 ltt1=values[3];
 lng1=values[4];
  var vectorLayer = new OpenLayers.Layer.Vector("vector");
