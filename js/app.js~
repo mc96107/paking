@@ -152,7 +152,6 @@ geolocate.events.register("locationfailed",this,function() {
 
 
    var vectorLayer = new OpenLayers.Layer.Vector("vector");
-var pointl=lng1+","+ltt1;console.log(pointl);
     vectorLayer.addFeatures(
         new OpenLayers.Feature.Vector(
             new OpenLayers.Geometry.Point(lng1,ltt1).transform(
