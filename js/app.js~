@@ -161,12 +161,27 @@ geolocate.events.register("locationfailed",this,function() {
  map.addLayer(vectorLayer);
 
 
-
-
-
-
-
+$('button.showlast').click(function() {
 	
+ vector.removeAllFeatures();
+    geolocate.deactivate();
+    geolocate.watch = true;
+    firstGeolocation = true;
+    geolocate.activate();
+
+   var vectorLayer = new OpenLayers.Layer.Vector("vector");
+    vectorLayer.addFeatures(
+        new OpenLayers.Feature.Vector(
+            new OpenLayers.Geometry.Point(lng1,ltt1).transform(
+            new OpenLayers.Projection("EPSG:4326"),
+            map.getProjectionObject()
+            )
+        )
+    ) 
+ map.addLayer(vectorLayer);
+    });
+
+
     function formatDate(d) {
         return (d.getMonth()+1) + '/' +
             d.getDate() + '/' +
