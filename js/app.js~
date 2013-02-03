@@ -165,7 +165,6 @@ geolocate.events.register("locationfailed",this,function() {
 
 
 $('button.showDay').click(function() {
-console.log("dayclick");
 var newDate = new Date();
 	var date1 = formatDate(newDate);
 	var itemId = newDate.getTime();
@@ -178,15 +177,13 @@ var newDate = new Date();
 	weekday[5]="Friday";
 	weekday[6]="Saturday";
 	var day = weekday[newDate.getDay()];
-for (i = 0; i <= logLength; i++) {
+	for (i = 0; i <= logLength; i++) {
 	var itemKey = localStorage.key(i);
 	var values = localStorage.getItem(itemKey);
 	values = values.split(";");
-
 if(values[6]==day){
 ltt1=values[3];
 lng1=values[4];
-
  var vectorLayer = new OpenLayers.Layer.Vector("vector");
     vectorLayer.addFeatures(
         new OpenLayers.Feature.Vector(
@@ -197,8 +194,34 @@ lng1=values[4];
         )
     ) 
  map.addLayer(vectorLayer);
-	}
-}
+	};
+};
+  });
+$('button.showHour').click(function() {
+var newDate = new Date();
+	var date1 = formatDate(newDate);
+	var itemId = newDate.getTime();
+	var hour = newDate.getHours();
+	var minutes = newDate.getMinutes();
+	for (i = 0; i <= logLength; i++) {
+	var itemKey = localStorage.key(i);
+	var values = localStorage.getItem(itemKey);
+	values = values.split(";");
+if(values[7]==day){
+ltt1=values[3];
+lng1=values[4];
+ var vectorLayer = new OpenLayers.Layer.Vector("vector");
+    vectorLayer.addFeatures(
+        new OpenLayers.Feature.Vector(
+            new OpenLayers.Geometry.Point(lng1,ltt1).transform(
+            new OpenLayers.Projection("EPSG:4326"),
+            map.getProjectionObject()
+            )
+        )
+    ) 
+ map.addLayer(vectorLayer);
+	};
+};
   });
 
 
@@ -296,7 +319,7 @@ lng = 24;
 	detail.close('slideRightOut');
 	});  };
     // Edit view
-
+/*
     var edit = $('.edit').get(0);
     edit.render = function(item) {
         item = item || { id: '', get: function() { return ''; } };
@@ -318,7 +341,7 @@ lng = 24;
     };
 	
 	
-	/*$('button.add', edit).click(function() {
+	$('button.add', edit).click(function() {
 	var el = $(edit);
 	var model = edit.model;
         var title = el.find('input[name=title]');
