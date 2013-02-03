@@ -15,10 +15,10 @@
     
     <x-view id="app">
       <x-view class="home">
-      <x-view class="homesub">
+ <x-view class="homesub">
 	<header>
-	     <button id="install-btn">Install</button>  
-<h1>parking</h1><button data-view=".list">List</button> <button class="showlast">L</button> <button class="add1">+</button> 
+	     
+<h1>parking</h1> <button class="add1">+</button> 
 	</header>   
 <div id="map"></div>
 <!--
@@ -27,7 +27,22 @@
         <label for="track">Track my position</label>
 -->
 
-        </x-view>
+        </x-view></x-view>
+      <x-view class="about">
+        <h1>about</h1>
+        <p>
+	Where is my car?
+        </p>
+      </x-view>
+      <x-view class="options1">
+      <x-view class="optionssub">
+<header>
+	     <button id="install-btn">Install</button>  
+<h1>parking</h1><button data-view=".list">List</button>
+	</header>   
+options
+</x-view>
+
       <x-listview class="list">
         <header>
           <!--<button class="refresh">Refresh</button>-->
@@ -45,23 +60,11 @@
         <p class="desc"></p>
 
 	      </x-view>
-
-      <x-view class="edit">
-	   <header><h1>Edit</h1><button type="submit" class="add">Save</button></header>
-		<div class="field">Title: <input type="text" name="title" /></div>
-        <div class="field">Description: <input type="text" name="desc" /></div>
-
-      </x-view>
     </x-view> 
 
-      <x-view class="about">
-        <h1>about</h1>
-        <p>
-	Where is my car?
-        </p>
-      </x-view>
       <footer>
         <button data-view=".home">Home</button>
+	<button data-view=".options1">options</button>
 	<button data-view=".about">about</button>
       </footer>
       </x-view>
