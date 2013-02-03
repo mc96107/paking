@@ -184,16 +184,6 @@ var newDate = new Date();
 if(values[6]==day){
 ltt1=values[3];
 lng1=values[4];
- var vectorLayer = new OpenLayers.Layer.Vector("vector");
-    vectorLayer.addFeatures(
-        new OpenLayers.Feature.Vector(
-            new OpenLayers.Geometry.Point(lng1,ltt1).transform(
-            new OpenLayers.Projection("EPSG:4326"),
-            map.getProjectionObject()
-            )
-        )
-    ) 
- map.addLayer(vectorLayer);
 	};
 };
   });
