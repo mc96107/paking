@@ -16,8 +16,8 @@
     <x-view id="app">
       <x-view class="home">
       <x-view class="homesub">
-	<header> <button data-view=".list">List</button> 
-<h1>parking</h1><button class="add1">Add Location</button> 
+	<header> <button data-view=".list">    <i class="icon-th-list"></i>  </button> 
+<h1>parking</h1><button class="add1"><i class="icon-screenshot"></i></button> 
 	</header>   
 <div id="map"></div>
 <!--
@@ -29,14 +29,14 @@
       <x-listview class="list">
         <header>
           <!--<button class="refresh">Refresh</button>-->
-          <h1>My Items</h1><button  onclick='localStorage.clear();location.reload();'>Clear Data</button>
+          <h1>My Items</h1><button  onclick='localStorage.clear();location.reload();'><i class="icon-remove-sign"></i></button>
         </header>
       </x-listview>
       <x-view class="detail">
         <header>
           <h1>he</h1>
           <!-- <button data-view="x-view.edit">Edit</button> -->
-	<button type="submit" class="deleT">Delete</button>
+	<button type="submit" class="deleT"><i class="icon-remove"></i></button>
 	</header>
         <h1 class="title"></h1>
         <p class="desc"></p>
@@ -51,18 +51,19 @@
 
       <x-view class="about">
 	  <header>
-	  <button id="install-btn">Install</button> 
+	  <button id="install-btn"><i class="icon-download-alt"></i></button> 
         <h1>about</h1></header>
         <p>
 	Where is my car?
         </p>
       </x-view>
       <footer>
-        <button data-view=".home">Home</button>
-	<button data-view=".about">about</button>
-	<button class="showAll">showAll</button>
-	<button class="showDay">showDay</button>
-	<button class="showHour">showHour</button>
+        <button data-view=".home"><i class="icon-home"></i></button>
+	<button data-view=".about"><i class="icon-info-sign"></i></button>
+	<button  onclick='location.reload();'><i class="icon-refresh"></i></button>
+	<button class="showAll"><i class="icon-filter"></i></button>
+	<button class="showDay"><i class="icon-calendar"></i></button>
+	<button class="showHour"><i class="icon-time"></i></button>
       </footer>
       </x-view>
 
