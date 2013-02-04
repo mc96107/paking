@@ -4,9 +4,9 @@
   "description": "Where is my car?",
   "launch_path": "/paking/",
   "icons": {
-    "16": "/paking/img/icons/mortar-16.png",
-    "48": "/paking/img/icons/mortar-48.png",
-    "128": "/paking/img/icons/mortar-128.png"
+    "16": "/paking/img/icons/parking16.png",
+    "48": "/paking/img/icons/parking48.png",
+    "128": "/paking/img/icons/parking128.png"
   },
   "developer": {
     "name": "Dimitris Gardiklis",
