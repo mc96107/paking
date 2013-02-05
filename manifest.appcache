@@ -1,0 +1,47 @@
+CACHE MANIFEST
+# DSfav/C7oP4p0ADWAOHLiG9ymEg=
+
+CACHE:
+F:\Dropbox\coding\paking\www-built\.htaccess
+F:\Dropbox\coding\paking\www-built\build.txt
+F:\Dropbox\coding\paking\www-built\css\app.css
+F:\Dropbox\coding\paking\www-built\css\app.css~
+F:\Dropbox\coding\paking\www-built\css\fonts\Moz Light.otf
+F:\Dropbox\coding\paking\www-built\css\fonts\Moz Medium.otf
+F:\Dropbox\coding\paking\www-built\css\fonts\Moz Regular.otf
+F:\Dropbox\coding\paking\www-built\css\fonts\MozTT Light.ttf
+F:\Dropbox\coding\paking\www-built\css\fonts\MozTT Medium.ttf
+F:\Dropbox\coding\paking\www-built\css\fonts\MozTT Regular.ttf
+F:\Dropbox\coding\paking\www-built\css\fonts.css
+F:\Dropbox\coding\paking\www-built\css\install-button.css
+F:\Dropbox\coding\paking\www-built\css\install-button.css~
+F:\Dropbox\coding\paking\www-built\favicon.ico
+F:\Dropbox\coding\paking\www-built\img\.gitignore
+F:\Dropbox\coding\paking\www-built\img\car.png
+F:\Dropbox\coding\paking\www-built\img\glyphicons-halflings-white.png
+F:\Dropbox\coding\paking\www-built\img\glyphicons-halflings.png
+F:\Dropbox\coding\paking\www-built\img\icons\parking128.png
+F:\Dropbox\coding\paking\www-built\img\icons\parking16.png
+F:\Dropbox\coding\paking\www-built\img\icons\parking48.png
+F:\Dropbox\coding\paking\www-built\img\icons\parking60.png
+F:\Dropbox\coding\paking\www-built\img\person.png
+F:\Dropbox\coding\paking\www-built\index.html
+F:\Dropbox\coding\paking\www-built\js\app.js
+F:\Dropbox\coding\paking\www-built\js\app.js~
+F:\Dropbox\coding\paking\www-built\js\init.js
+F:\Dropbox\coding\paking\www-built\js\init.js~
+F:\Dropbox\coding\paking\www-built\js\lib\backbone.statemanager.js
+F:\Dropbox\coding\paking\www-built\js\lib\layouts\css\layouts.css
+F:\Dropbox\coding\paking\www-built\js\lib\layouts\css\layouts.less
+F:\Dropbox\coding\paking\www-built\js\lib\layouts\README.md
+F:\Dropbox\coding\paking\www-built\js\lib\OpenLayers.mobile.js~
+F:\Dropbox\coding\paking\www-built\js\lib\require.js
+F:\Dropbox\coding\paking\www-built\js\maps.js~
+F:\Dropbox\coding\paking\www-built\js\OpenLayers.mobile.js~
+F:\Dropbox\coding\paking\www-built\manifest.webapp
+
+# catch-all for anything else
+NETWORK:
+*
+http://*
+https://*
